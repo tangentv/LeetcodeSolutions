@@ -2,22 +2,20 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         
-        int jumpCount=0;
-        int maxCount = 0;
-
-        int currentJump = 0;
-
-        for(int i=0;i<nums.size()-1 ; i++){
-
-            maxCount = max(maxCount, i+nums[i]);
-            
-            if (i == currentJump) {
-                ++jumpCount;
-                currentJump = maxCount;
+        int jumpcount = 0;
+        int left = 0;
+        int right =0;
+        while(right < nums.size()-1){
+            int farthest = 0;
+            for(int i = left; i<(right+1);i++){
+                farthest = max(farthest, nums[i]+i);
             }
+            left = right+1;
+            right = farthest;
+            jumpcount += 1;            
         }
-      
-        return jumpCount;
+
+        return jumpcount;
 
     }
 };
