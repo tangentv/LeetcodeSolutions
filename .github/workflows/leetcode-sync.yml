@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Sync LeetCode submissions
-        uses: tangentv/leetcode-sync@main
+        uses: tangentv/leetcode-sync@master
         with:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
